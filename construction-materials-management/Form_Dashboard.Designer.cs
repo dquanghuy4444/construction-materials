@@ -32,11 +32,11 @@ namespace construction_materials_management
             this.label_Welcome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_ShowInfor = new System.Windows.Forms.Button();
-            this.btn_ShowListProducts = new System.Windows.Forms.Button();
+            this.btn_ShowListSuppliers = new System.Windows.Forms.Button();
             this.btn_LogOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -88,17 +88,17 @@ namespace construction_materials_management
             this.btn_ShowInfor.UseVisualStyleBackColor = false;
             this.btn_ShowInfor.Click += new System.EventHandler(this.btn_ShowInfor_Click);
             // 
-            // btn_ShowListProducts
+            // btn_ShowListSuppliers
             // 
-            this.btn_ShowListProducts.BackColor = System.Drawing.Color.SeaShell;
-            this.btn_ShowListProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ShowListProducts.Location = new System.Drawing.Point(366, 148);
-            this.btn_ShowListProducts.Name = "btn_ShowListProducts";
-            this.btn_ShowListProducts.Size = new System.Drawing.Size(207, 62);
-            this.btn_ShowListProducts.TabIndex = 3;
-            this.btn_ShowListProducts.Text = "Xem danh sách vật liệu";
-            this.btn_ShowListProducts.UseVisualStyleBackColor = false;
-            this.btn_ShowListProducts.Click += new System.EventHandler(this.btn_ShowListProducts_Click);
+            this.btn_ShowListSuppliers.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_ShowListSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowListSuppliers.Location = new System.Drawing.Point(366, 148);
+            this.btn_ShowListSuppliers.Name = "btn_ShowListSuppliers";
+            this.btn_ShowListSuppliers.Size = new System.Drawing.Size(207, 62);
+            this.btn_ShowListSuppliers.TabIndex = 3;
+            this.btn_ShowListSuppliers.Text = "Xem danh sách nhà cung cấp";
+            this.btn_ShowListSuppliers.UseVisualStyleBackColor = false;
+            this.btn_ShowListSuppliers.Click += new System.EventHandler(this.btn_ShowListSuppliers_Click);
             // 
             // btn_LogOut
             // 
@@ -122,16 +122,6 @@ namespace construction_materials_management
             this.panel1.Size = new System.Drawing.Size(242, 101);
             this.panel1.TabIndex = 5;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tổng số đơn hàng";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -141,6 +131,16 @@ namespace construction_materials_management
             this.label2.Size = new System.Drawing.Size(64, 29);
             this.label2.TabIndex = 6;
             this.label2.Text = "XXX";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tổng số đơn hàng";
             // 
             // panel2
             // 
@@ -245,7 +245,7 @@ namespace construction_materials_management
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_LogOut);
-            this.Controls.Add(this.btn_ShowListProducts);
+            this.Controls.Add(this.btn_ShowListSuppliers);
             this.Controls.Add(this.btn_ShowInfor);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_Welcome);
@@ -271,7 +271,7 @@ namespace construction_materials_management
         private System.Windows.Forms.Label label_Welcome;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_ShowInfor;
-        private System.Windows.Forms.Button btn_ShowListProducts;
+        private System.Windows.Forms.Button btn_ShowListSuppliers;
         private System.Windows.Forms.Button btn_LogOut;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;

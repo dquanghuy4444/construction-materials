@@ -55,16 +55,16 @@ namespace construction_materials_management
             formUserInfor.Show();
         }
 
-        private void btn_ShowListProducts_Click(object sender, EventArgs e)
-        {
-            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_PRODUCTS);
-        }
-
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
             formMain.Hide();
             Form_Login formLogin = new Form_Login();
             formLogin.Show();
+        }
+
+        private void btn_ShowListSuppliers_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_SUPPLIERS);
         }
     }
 }

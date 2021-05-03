@@ -35,3 +35,11 @@ D:\Coding\Projects\C#\construction-materials-management\construction-materials-m
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Dashboard.resources
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_UserInfor.resources
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Supplier.resources
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\ClosedXML.dll
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\ExcelNumberFormat.dll
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\System.IO.Packaging.dll
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\ClosedXML.pdb
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\ClosedXML.xml
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\DocumentFormat.OpenXml.xml
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\bin\Debug\ExcelNumberFormat.xml

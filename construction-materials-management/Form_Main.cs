@@ -13,10 +13,10 @@ namespace construction_materials_management
     public partial class Form_Main : Form
     {
         public string userId;
-        public enum ENUM_TABPAGE
+        public enum ENUM_TABPAGE  
         {
-            LIST_PRODUCTS = 1,
-            LIST_SUPPLIER = 2,
+            LIST_SUPPLIERS = 1,
+            LIST_PRODUCTS = 2,
         }
         public Form_Main(string id)
         {

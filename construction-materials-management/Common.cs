@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -21,6 +23,80 @@ namespace construction_materials_management
                 hash.Append(bytes[i].ToString("x2"));
             }
             return hash.ToString();
+        }
+
+
+        public static bool IsEmail(string address)
+        {
+            EmailAddressAttribute e = new EmailAddressAttribute();
+            if (e.IsValid(address))
+                return true;
+            else
+                return false;
+        }
+
+        public static void ExportToExcel(DataTable dt)
+        {
+
+            /*Set up work book, work sheets, and excel application*/
+            Microsoft.Office.Interop.Excel.Application oexcel = new Microsoft.Office.Interop.Excel.Application();
+            try
+            {
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                object misValue = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Excel.Workbook obook = oexcel.Workbooks.Add(misValue);
+                Microsoft.Office.Interop.Excel.Worksheet osheet = new Microsoft.Office.Interop.Excel.Worksheet();
+
+
+                //  obook.Worksheets.Add(misValue);
+
+                osheet = (Microsoft.Office.Interop.Excel.Worksheet)obook.Sheets["Sheet1"];
+                int colIndex = 0;
+                int rowIndex = 1;
+
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    colIndex++;
+                    osheet.Cells[1, colIndex] = dc.ColumnName;
+                }
+                foreach (DataRow dr in dt.Rows)
+                {
+                    rowIndex++;
+                    colIndex = 0;
+
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        colIndex++;
+                        osheet.Cells[rowIndex, colIndex] = dr[dc.ColumnName];
+                    }
+                }
+
+                osheet.Columns.AutoFit();
+                string filepath = "C:\\Temp\\Book1";
+
+                //Release and terminate excel
+
+                obook.SaveAs(filepath);
+                obook.Close();
+                oexcel.Quit();
+                ReleaseObject(osheet);
+                ReleaseObject(obook);
+                ReleaseObject(oexcel);
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                oexcel.Quit();
+            }
+        }
+        private static void ReleaseObject(object o)
+        {
+            try
+            {
+                while (System.Runtime.InteropServices.Marshal.ReleaseComObject(o) > 0) { }
+            }
+            catch { }
+            finally { o = null; }
         }
     }
 }

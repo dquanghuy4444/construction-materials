@@ -75,23 +75,31 @@ namespace construction_materials_management
 
         private void btn_Change_Click(object sender, EventArgs e)
         {
-            if(txt_FullName.Text == "")
+            fullName = txt_FullName.Text;
+
+            if (fullName == "")
             {
                 MessageBox.Show("Bạn chưa họ tên", "Cảnh báo");
                 txt_FullName.Focus();
                 return;
             } 
-            if(txt_FullName.Text.Length > 20)
+            if(fullName.Length > 20)
             {
                 MessageBox.Show("Chỉ được tối đa 20 kí tự", "Cảnh báo");
                 txt_FullName.Focus();
                 return;
             }
 
-            string query = "";
-            fullName = txt_FullName.Text;
-            phone = txt_Phone.Text;
             email = txt_Email.Text;
+            if (email != "" && !Common.IsEmail(email))
+            {
+                MessageBox.Show("Không phải định dạng email", "Cảnh báo");
+                txt_Email.Focus();
+                return;
+            }
+
+            string query = "";
+            phone = txt_Phone.Text;
             address = rtb_Address.Text;
             birthDay = dtp_BirthDay.Text;
             if (rdb_Male.Checked == true)
