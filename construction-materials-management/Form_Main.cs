@@ -18,6 +18,8 @@ namespace construction_materials_management
             LIST_SUPPLIERS = 1,
             LIST_CUSTOMERS = 2,
             LIST_PRODUCTS = 3,
+            REPOSITORY = 4,
+            INTRODUCTION = 5,
         }
         public Form_Main(string id)
         {
@@ -26,6 +28,9 @@ namespace construction_materials_management
             userId = id;
 
             InitialFormInPanel();
+
+            webBrowser1.ScriptErrorsSuppressed = true;
+            webBrowser1.Navigate(new Uri("https://vlxdhiepha.com/"));
 
         }
 
@@ -52,6 +57,7 @@ namespace construction_materials_management
             Form_Product formProduct = new Form_Product(this);
             formProduct.TopLevel = false;
             formProduct.AutoScroll = true;
+            formProduct.Name = "form";
             this.panel_Product.Controls.Add(formProduct);
             formProduct.Show();
         }
@@ -59,6 +65,17 @@ namespace construction_materials_management
         public void ChangeTabPage(int indexTabPage)
         {
             this.tabC_Main.SelectedIndex = indexTabPage;
+        }
+
+        public void ChangeTabPageProductGroup(int indexTabPage)
+        {
+            this.tabC_Main.SelectedIndex = (int)Form_Main.ENUM_TABPAGE.LIST_PRODUCTS;
+
+            Form_Product find = (Form_Product)this.panel_Product.Controls.Find("form", true).FirstOrDefault();
+            if (find != null)
+            {
+                find.ChangeTabPage(indexTabPage);
+            }
         }
     }
 }

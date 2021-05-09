@@ -35,9 +35,9 @@ namespace construction_materials_management
             this.panel_Product_Detail = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel_ProductGroups = new System.Windows.Forms.Panel();
+            this.panel_Product_Group = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_Product_Group = new System.Windows.Forms.Panel();
             this.tabC_Main.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -47,6 +47,7 @@ namespace construction_materials_management
             // 
             // tabC_Main
             // 
+            this.tabC_Main.AllowDrop = true;
             this.tabC_Main.Controls.Add(this.tabPage1);
             this.tabC_Main.Controls.Add(this.tabPage2);
             this.tabC_Main.Location = new System.Drawing.Point(0, 0);
@@ -54,6 +55,7 @@ namespace construction_materials_management
             this.tabC_Main.SelectedIndex = 0;
             this.tabC_Main.Size = new System.Drawing.Size(1481, 730);
             this.tabC_Main.TabIndex = 21;
+            this.tabC_Main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabC_Main_Selecting);
             // 
             // tabPage1
             // 
@@ -93,6 +95,14 @@ namespace construction_materials_management
             this.panel_ProductGroups.Size = new System.Drawing.Size(1473, 701);
             this.panel_ProductGroups.TabIndex = 1;
             // 
+            // panel_Product_Group
+            // 
+            this.panel_Product_Group.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel_Product_Group.Location = new System.Drawing.Point(0, 0);
+            this.panel_Product_Group.Name = "panel_Product_Group";
+            this.panel_Product_Group.Size = new System.Drawing.Size(1473, 701);
+            this.panel_Product_Group.TabIndex = 1;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -106,14 +116,6 @@ namespace construction_materials_management
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
             this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 24);
             this.ToolStripMenuItem1.Text = "Sửa thông tin";
-            // 
-            // panel_Product_Group
-            // 
-            this.panel_Product_Group.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel_Product_Group.Location = new System.Drawing.Point(0, 0);
-            this.panel_Product_Group.Name = "panel_Product_Group";
-            this.panel_Product_Group.Size = new System.Drawing.Size(1473, 701);
-            this.panel_Product_Group.TabIndex = 1;
             // 
             // Form_Product
             // 

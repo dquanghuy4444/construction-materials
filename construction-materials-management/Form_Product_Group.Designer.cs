@@ -36,7 +36,9 @@ namespace construction_materials_management
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grb_Option = new System.Windows.Forms.GroupBox();
+            this.grb_Option_Group = new System.Windows.Forms.GroupBox();
+            this.btn_Return_Group = new System.Windows.Forms.Button();
+            this.btn_Add_Group = new System.Windows.Forms.Button();
             this.cbb_Unit = new System.Windows.Forms.ComboBox();
             this.lbl_SelectedId = new System.Windows.Forms.Label();
             this.rtb_Description = new System.Windows.Forms.RichTextBox();
@@ -49,10 +51,12 @@ namespace construction_materials_management
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grb_Option_Unit = new System.Windows.Forms.GroupBox();
+            this.btn_Return_Unit = new System.Windows.Forms.Button();
+            this.btn_Add_Unit = new System.Windows.Forms.Button();
             this.lbl_SelectedId_Unit = new System.Windows.Forms.Label();
             this.rtb_Description_Unit = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Change_Unit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_Fullname_Unit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,10 +68,10 @@ namespace construction_materials_management
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Main)).BeginInit();
-            this.grb_Option.SuspendLayout();
+            this.grb_Option_Group.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_Option_Unit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unit)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -133,22 +137,48 @@ namespace construction_materials_management
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
-            // grb_Option
+            // grb_Option_Group
             // 
-            this.grb_Option.Controls.Add(this.cbb_Unit);
-            this.grb_Option.Controls.Add(this.lbl_SelectedId);
-            this.grb_Option.Controls.Add(this.rtb_Description);
-            this.grb_Option.Controls.Add(this.btn_Change);
-            this.grb_Option.Controls.Add(this.label5);
-            this.grb_Option.Controls.Add(this.label4);
-            this.grb_Option.Controls.Add(this.txt_Fullname);
-            this.grb_Option.Controls.Add(this.label1);
-            this.grb_Option.Location = new System.Drawing.Point(969, 12);
-            this.grb_Option.Name = "grb_Option";
-            this.grb_Option.Size = new System.Drawing.Size(478, 316);
-            this.grb_Option.TabIndex = 1;
-            this.grb_Option.TabStop = false;
-            this.grb_Option.Text = "Thay đổi thông tin nhóm sản phẩm";
+            this.grb_Option_Group.Controls.Add(this.btn_Return_Group);
+            this.grb_Option_Group.Controls.Add(this.btn_Add_Group);
+            this.grb_Option_Group.Controls.Add(this.cbb_Unit);
+            this.grb_Option_Group.Controls.Add(this.lbl_SelectedId);
+            this.grb_Option_Group.Controls.Add(this.rtb_Description);
+            this.grb_Option_Group.Controls.Add(this.btn_Change);
+            this.grb_Option_Group.Controls.Add(this.label5);
+            this.grb_Option_Group.Controls.Add(this.label4);
+            this.grb_Option_Group.Controls.Add(this.txt_Fullname);
+            this.grb_Option_Group.Controls.Add(this.label1);
+            this.grb_Option_Group.Location = new System.Drawing.Point(969, 12);
+            this.grb_Option_Group.Name = "grb_Option_Group";
+            this.grb_Option_Group.Size = new System.Drawing.Size(478, 316);
+            this.grb_Option_Group.TabIndex = 1;
+            this.grb_Option_Group.TabStop = false;
+            this.grb_Option_Group.Text = "Thay đổi thông tin nhóm sản phẩm";
+            // 
+            // btn_Return_Group
+            // 
+            this.btn_Return_Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_Return_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Return_Group.Location = new System.Drawing.Point(188, 254);
+            this.btn_Return_Group.Name = "btn_Return_Group";
+            this.btn_Return_Group.Size = new System.Drawing.Size(150, 56);
+            this.btn_Return_Group.TabIndex = 21;
+            this.btn_Return_Group.Text = "Trở lại";
+            this.btn_Return_Group.UseVisualStyleBackColor = false;
+            this.btn_Return_Group.Click += new System.EventHandler(this.btn_Return_Group_Click);
+            // 
+            // btn_Add_Group
+            // 
+            this.btn_Add_Group.BackColor = System.Drawing.Color.Lime;
+            this.btn_Add_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add_Group.Location = new System.Drawing.Point(20, 253);
+            this.btn_Add_Group.Name = "btn_Add_Group";
+            this.btn_Add_Group.Size = new System.Drawing.Size(150, 56);
+            this.btn_Add_Group.TabIndex = 20;
+            this.btn_Add_Group.Text = "Thêm mới";
+            this.btn_Add_Group.UseVisualStyleBackColor = false;
+            this.btn_Add_Group.Click += new System.EventHandler(this.btn_Add_Group_Click);
             // 
             // cbb_Unit
             // 
@@ -233,7 +263,7 @@ namespace construction_materials_management
             // ToolStripMenuItem1
             // 
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 24);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.ToolStripMenuItem1.Text = "Sửa thông tin";
             this.ToolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
@@ -251,7 +281,7 @@ namespace construction_materials_management
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.grb_Option_Unit);
             this.groupBox1.Controls.Add(this.dgv_Unit);
             this.groupBox1.Location = new System.Drawing.Point(0, 424);
             this.groupBox1.Name = "groupBox1";
@@ -260,20 +290,46 @@ namespace construction_materials_management
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quản lí đơn vị sản phẩm";
             // 
-            // groupBox2
+            // grb_Option_Unit
             // 
-            this.groupBox2.Controls.Add(this.lbl_SelectedId_Unit);
-            this.groupBox2.Controls.Add(this.rtb_Description_Unit);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txt_Fullname_Unit);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(969, 21);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(478, 250);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thay đổi thông tin đơn vị";
+            this.grb_Option_Unit.Controls.Add(this.btn_Return_Unit);
+            this.grb_Option_Unit.Controls.Add(this.btn_Add_Unit);
+            this.grb_Option_Unit.Controls.Add(this.lbl_SelectedId_Unit);
+            this.grb_Option_Unit.Controls.Add(this.rtb_Description_Unit);
+            this.grb_Option_Unit.Controls.Add(this.btn_Change_Unit);
+            this.grb_Option_Unit.Controls.Add(this.label6);
+            this.grb_Option_Unit.Controls.Add(this.txt_Fullname_Unit);
+            this.grb_Option_Unit.Controls.Add(this.label7);
+            this.grb_Option_Unit.Location = new System.Drawing.Point(969, 21);
+            this.grb_Option_Unit.Name = "grb_Option_Unit";
+            this.grb_Option_Unit.Size = new System.Drawing.Size(478, 250);
+            this.grb_Option_Unit.TabIndex = 2;
+            this.grb_Option_Unit.TabStop = false;
+            this.grb_Option_Unit.Text = "Thay đổi thông tin đơn vị";
+            // 
+            // btn_Return_Unit
+            // 
+            this.btn_Return_Unit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_Return_Unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Return_Unit.Location = new System.Drawing.Point(188, 187);
+            this.btn_Return_Unit.Name = "btn_Return_Unit";
+            this.btn_Return_Unit.Size = new System.Drawing.Size(150, 56);
+            this.btn_Return_Unit.TabIndex = 22;
+            this.btn_Return_Unit.Text = "Trở lại";
+            this.btn_Return_Unit.UseVisualStyleBackColor = false;
+            this.btn_Return_Unit.Click += new System.EventHandler(this.btn_Return_Unit_Click);
+            // 
+            // btn_Add_Unit
+            // 
+            this.btn_Add_Unit.BackColor = System.Drawing.Color.Lime;
+            this.btn_Add_Unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add_Unit.Location = new System.Drawing.Point(20, 188);
+            this.btn_Add_Unit.Name = "btn_Add_Unit";
+            this.btn_Add_Unit.Size = new System.Drawing.Size(150, 56);
+            this.btn_Add_Unit.TabIndex = 21;
+            this.btn_Add_Unit.Text = "Thêm mới";
+            this.btn_Add_Unit.UseVisualStyleBackColor = false;
+            this.btn_Add_Unit.Click += new System.EventHandler(this.btn_Add_Unit_Click);
             // 
             // lbl_SelectedId_Unit
             // 
@@ -293,17 +349,17 @@ namespace construction_materials_management
             this.rtb_Description_Unit.TabIndex = 10;
             this.rtb_Description_Unit.Text = "";
             // 
-            // button1
+            // btn_Change_Unit
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(20, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 56);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Thay đổi";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Change_Unit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_Change_Unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Change_Unit.Location = new System.Drawing.Point(20, 187);
+            this.btn_Change_Unit.Name = "btn_Change_Unit";
+            this.btn_Change_Unit.Size = new System.Drawing.Size(150, 56);
+            this.btn_Change_Unit.TabIndex = 16;
+            this.btn_Change_Unit.Text = "Thay đổi";
+            this.btn_Change_Unit.UseVisualStyleBackColor = false;
+            this.btn_Change_Unit.Click += new System.EventHandler(this.btn_Change_Unit_Click);
             // 
             // label6
             // 
@@ -388,12 +444,12 @@ namespace construction_materials_management
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(168, 28);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 24);
             this.toolStripMenuItem2.Text = "Sửa thông tin";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -406,7 +462,7 @@ namespace construction_materials_management
             this.ClientSize = new System.Drawing.Size(1481, 734);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_ExportExcel);
-            this.Controls.Add(this.grb_Option);
+            this.Controls.Add(this.grb_Option_Group);
             this.Controls.Add(this.dgv_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -415,12 +471,12 @@ namespace construction_materials_management
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Supplier";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Main)).EndInit();
-            this.grb_Option.ResumeLayout(false);
-            this.grb_Option.PerformLayout();
+            this.grb_Option_Group.ResumeLayout(false);
+            this.grb_Option_Group.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_Option_Unit.ResumeLayout(false);
+            this.grb_Option_Unit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unit)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -430,13 +486,12 @@ namespace construction_materials_management
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_Main;
-        private System.Windows.Forms.GroupBox grb_Option;
+        private System.Windows.Forms.GroupBox grb_Option_Group;
         private System.Windows.Forms.RichTextBox rtb_Description;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Fullname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_Change;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem1;
         private System.Windows.Forms.Label lbl_SelectedId;
@@ -448,10 +503,10 @@ namespace construction_materials_management
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ComboBox cbb_Unit;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grb_Option_Unit;
         private System.Windows.Forms.Label lbl_SelectedId_Unit;
         private System.Windows.Forms.RichTextBox rtb_Description_Unit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Change_Unit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_Fullname_Unit;
         private System.Windows.Forms.Label label7;
@@ -462,5 +517,10 @@ namespace construction_materials_management
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Button btn_Add_Group;
+        private System.Windows.Forms.Button btn_Change;
+        private System.Windows.Forms.Button btn_Add_Unit;
+        private System.Windows.Forms.Button btn_Return_Group;
+        private System.Windows.Forms.Button btn_Return_Unit;
     }
 }

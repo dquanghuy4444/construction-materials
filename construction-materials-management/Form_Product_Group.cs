@@ -18,8 +18,6 @@ namespace construction_materials_management
 
         public int selectedId;
         public int selectedIdUnit;
-        public int statusGroup;
-        public int statusUnit;
 
         public Form_Product_Group(Form frmMain)
         {
@@ -77,9 +75,8 @@ namespace construction_materials_management
                 }
             }
 
-            statusGroup = (int)Variables.ENUM_STATUS.ACTIVE;
-
-            statusUnit = (int)Variables.ENUM_STATUS.ACTIVE;
+            ChangeContextUnit(true);
+            ChangeContextGroup(true);
         }
 
         public void RefreshForm()
@@ -148,6 +145,8 @@ namespace construction_materials_management
                 InitialContext();
 
                 RefreshForm();
+
+                ChangeContextGroup(true);
             }
 
         }
@@ -193,6 +192,8 @@ namespace construction_materials_management
                 rtb_Description.Text = dt.Rows[0]["description"].ToString();
                 cbb_Unit.SelectedValue = (int)dt.Rows[0]["id_unit"];
             }
+
+            ChangeContextGroup(false);
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
@@ -314,6 +315,133 @@ namespace construction_materials_management
                 txt_Fullname_Unit.Text = dt.Rows[0]["fullname"].ToString();
                 rtb_Description_Unit.Text = dt.Rows[0]["description"].ToString();
             }
+
+            ChangeContextUnit(false);
+        }
+
+        private void btn_Add_Group_Click(object sender, EventArgs e)
+        {
+            if (!ValidateForm())
+            {
+                return;
+            }
+
+            string query = "";
+            string fullName = txt_Fullname.Text;
+            string description = rtb_Description.Text;
+            string unitId = cbb_Unit.SelectedValue.ToString();
+
+            query = "INSERT INTO material.product_group " +
+                "(fullname,description,unit_id) VALUES " +
+                "(" +
+                "\'" + fullName + "\' , " +
+                "\'" + description + "\' , " +
+                "\'" + unitId + "\' " +
+                ")";
+
+            bool success = ConnectionDatabase.QueryData(query);
+            if (success)
+            {
+                MessageBox.Show("Tạo mới thông tin nhóm sản phẩm thành công !!!", "Thông báo");
+
+                InitialContext();
+
+                RefreshForm();
+            }
+        }
+
+        private void btn_Add_Unit_Click(object sender, EventArgs e)
+        {
+            if (!ValidateForm_Unit())
+            {
+                return;
+            }
+
+            string query = "";
+            string fullName = txt_Fullname_Unit.Text;
+            string description = rtb_Description_Unit.Text;
+
+            query = "INSERT INTO material.product_unit " +
+                "(fullname,description) VALUES " +
+                "(" +
+                "\'" + fullName + "\' , " +
+                "\'" + description + "\' " +
+                ")";
+
+            bool success = ConnectionDatabase.QueryData(query);
+            if (success)
+            {
+                MessageBox.Show("Tạo mới thông tin đơn vị sản phẩm thành công !!!", "Thông báo");
+
+                InitialContext();
+
+                RefreshForm_Unit();
+            }
+        }
+
+        private void ChangeContextUnit(bool status)
+        {
+            btn_Add_Unit.Visible = status;
+            btn_Change_Unit.Visible = !status;
+
+            grb_Option_Unit.Text = status ? "Thêm mới đơn vị" : "Sửa thông tin đơn vị";
+
+            btn_Return_Unit.Visible = !status;
+        }
+
+        private void ChangeContextGroup(bool status)
+        {
+            btn_Add_Group.Visible = status;
+            btn_Change.Visible = !status;
+
+            grb_Option_Group.Text = status ? "Thêm mới nhóm sản phẩm" : "Sửa thông tin nhóm sản phẩm";
+
+            btn_Return_Group.Visible = !status;
+        }
+
+        private void btn_Change_Unit_Click(object sender, EventArgs e)
+        {
+            if (!ValidateForm_Unit(true))
+            {
+                return;
+            }
+
+            string query = "";
+            string fullName = txt_Fullname_Unit.Text;
+            string description = rtb_Description_Unit.Text;
+            string id = lbl_SelectedId_Unit.Text;
+            query = "UPDATE material.product_unit " +
+                "SET " +
+                "fullname = \'" + fullName + "\' ," +
+                "description = \'" + description + "\' " +
+                "WHERE id = \'" + id + "\'";
+
+            bool success = ConnectionDatabase.QueryData(query);
+            if (success)
+            {
+                MessageBox.Show("Thay đổi thông tin đơn vị thành công !!!", "Thông báo");
+
+                InitialContext();
+
+                RefreshForm_Unit();
+
+                ChangeContextUnit(true);
+            }
+        }
+
+        private void btn_Return_Unit_Click(object sender, EventArgs e)
+        {
+            RefreshForm_Unit();
+
+            ChangeContextUnit(true);
+
+        }
+
+        private void btn_Return_Group_Click(object sender, EventArgs e)
+        {
+            RefreshForm();
+
+            ChangeContextGroup(true);
         }
     }
 }

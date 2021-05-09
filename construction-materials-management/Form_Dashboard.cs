@@ -31,17 +31,39 @@ namespace construction_materials_management
 
         public void InitialData()
         {
-            if(formMain.userId != "")
+            string query = "SELECT * FROM material.product";
+            DataTable dt = ConnectionDatabase.GetData(query);
+            if (dt.Rows.Count > 0)
             {
-                string query = "SELECT * FROM material.user where id = \'" + formMain.userId + "\'";
+                lbl_Products.Text = dt.Rows.Count.ToString();
+            }
+            
+            query = "SELECT * FROM material.supplier";
+            dt = ConnectionDatabase.GetData(query);
+            if (dt.Rows.Count > 0)
+            {
+                lbl_Suppliers.Text = dt.Rows.Count.ToString();
+            } 
+            
+            query = "SELECT * FROM material.customer";
+            dt = ConnectionDatabase.GetData(query);
+            if (dt.Rows.Count > 0)
+            {
+                lbl_Customers.Text = dt.Rows.Count.ToString();
+            }
 
-                DataTable dt = ConnectionDatabase.GetData(query);
+            if (formMain.userId != "")
+            {
+                query = "SELECT * FROM material.user where id = \'" + formMain.userId + "\'";
+
+                dt = ConnectionDatabase.GetData(query);
 
                 if(dt.Rows.Count > 0)
                 {
                     dr = dt.Rows[0];
                 }
             }
+
 
         }
         public void InitialContext()
@@ -74,7 +96,25 @@ namespace construction_materials_management
 
         private void btn_ShowProducts_Click(object sender, EventArgs e)
         {
-            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_PRODUCTS);
+            formMain.ChangeTabPageProductGroup(0);
+        }
+
+        private void btn_ShowProductGroups_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPageProductGroup(1);
+
+        }
+
+        private void btn_Introduction_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.INTRODUCTION);
+
+        }
+
+        private void btn_ShowRepository_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.REPOSITORY);
+
         }
     }
 }

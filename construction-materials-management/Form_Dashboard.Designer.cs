@@ -34,13 +34,13 @@ namespace construction_materials_management
             this.btn_ShowListSuppliers = new System.Windows.Forms.Button();
             this.btn_LogOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_Products = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Suppliers = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Customers = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,6 +48,9 @@ namespace construction_materials_management
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_ShowListCustomers = new System.Windows.Forms.Button();
             this.btn_ShowProducts = new System.Windows.Forms.Button();
+            this.btn_ShowProductGroups = new System.Windows.Forms.Button();
+            this.btn_Introduction = new System.Windows.Forms.Button();
+            this.btn_ShowRepository = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,22 +107,22 @@ namespace construction_materials_management
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OldLace;
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lbl_Products);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(366, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(242, 101);
             this.panel1.TabIndex = 5;
             // 
-            // label2
+            // lbl_Products
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 29);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "XXX";
+            this.lbl_Products.AutoSize = true;
+            this.lbl_Products.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Products.Location = new System.Drawing.Point(16, 54);
+            this.lbl_Products.Name = "lbl_Products";
+            this.lbl_Products.Size = new System.Drawing.Size(64, 29);
+            this.lbl_Products.TabIndex = 6;
+            this.lbl_Products.Text = "XXX";
             // 
             // label1
             // 
@@ -127,29 +130,29 @@ namespace construction_materials_management
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 25);
+            this.label1.Size = new System.Drawing.Size(210, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tổng số đơn hàng";
+            this.label1.Text = "Tổng số loại sản phẩm";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.OldLace;
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lbl_Suppliers);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(634, 9);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 101);
             this.panel2.TabIndex = 7;
             // 
-            // label3
+            // lbl_Suppliers
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 29);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "XXX";
+            this.lbl_Suppliers.AutoSize = true;
+            this.lbl_Suppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Suppliers.Location = new System.Drawing.Point(16, 54);
+            this.lbl_Suppliers.Name = "lbl_Suppliers";
+            this.lbl_Suppliers.Size = new System.Drawing.Size(64, 29);
+            this.lbl_Suppliers.TabIndex = 6;
+            this.lbl_Suppliers.Text = "XXX";
             // 
             // label4
             // 
@@ -157,29 +160,29 @@ namespace construction_materials_management
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(14, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 25);
+            this.label4.Size = new System.Drawing.Size(207, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Tổng số đơn hàng";
+            this.label4.Text = "Tổng số nhà cung cấp";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.OldLace;
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.lbl_Customers);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(901, 9);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(242, 101);
             this.panel3.TabIndex = 8;
             // 
-            // label5
+            // lbl_Customers
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 29);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "XXX";
+            this.lbl_Customers.AutoSize = true;
+            this.lbl_Customers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Customers.Location = new System.Drawing.Point(16, 54);
+            this.lbl_Customers.Name = "lbl_Customers";
+            this.lbl_Customers.Size = new System.Drawing.Size(64, 29);
+            this.lbl_Customers.TabIndex = 6;
+            this.lbl_Customers.Text = "XXX";
             // 
             // label6
             // 
@@ -187,9 +190,9 @@ namespace construction_materials_management
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(14, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 25);
+            this.label6.Size = new System.Drawing.Size(191, 25);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Tổng số đơn hàng";
+            this.label6.Text = "Tổng số khách hàng";
             // 
             // panel4
             // 
@@ -258,6 +261,42 @@ namespace construction_materials_management
             this.btn_ShowProducts.UseVisualStyleBackColor = false;
             this.btn_ShowProducts.Click += new System.EventHandler(this.btn_ShowProducts_Click);
             // 
+            // btn_ShowProductGroups
+            // 
+            this.btn_ShowProductGroups.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_ShowProductGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowProductGroups.Location = new System.Drawing.Point(612, 148);
+            this.btn_ShowProductGroups.Name = "btn_ShowProductGroups";
+            this.btn_ShowProductGroups.Size = new System.Drawing.Size(207, 62);
+            this.btn_ShowProductGroups.TabIndex = 12;
+            this.btn_ShowProductGroups.Text = "Xem danh sách nhóm sản phẩm";
+            this.btn_ShowProductGroups.UseVisualStyleBackColor = false;
+            this.btn_ShowProductGroups.Click += new System.EventHandler(this.btn_ShowProductGroups_Click);
+            // 
+            // btn_Introduction
+            // 
+            this.btn_Introduction.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_Introduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Introduction.Location = new System.Drawing.Point(860, 148);
+            this.btn_Introduction.Name = "btn_Introduction";
+            this.btn_Introduction.Size = new System.Drawing.Size(207, 62);
+            this.btn_Introduction.TabIndex = 13;
+            this.btn_Introduction.Text = "Giới thiệu về công ty";
+            this.btn_Introduction.UseVisualStyleBackColor = false;
+            this.btn_Introduction.Click += new System.EventHandler(this.btn_Introduction_Click);
+            // 
+            // btn_ShowRepository
+            // 
+            this.btn_ShowRepository.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_ShowRepository.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowRepository.Location = new System.Drawing.Point(612, 242);
+            this.btn_ShowRepository.Name = "btn_ShowRepository";
+            this.btn_ShowRepository.Size = new System.Drawing.Size(207, 62);
+            this.btn_ShowRepository.TabIndex = 14;
+            this.btn_ShowRepository.Text = "Xem kho hàng";
+            this.btn_ShowRepository.UseVisualStyleBackColor = false;
+            this.btn_ShowRepository.Click += new System.EventHandler(this.btn_ShowRepository_Click);
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,6 +305,9 @@ namespace construction_materials_management
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1481, 734);
+            this.Controls.Add(this.btn_ShowRepository);
+            this.Controls.Add(this.btn_Introduction);
+            this.Controls.Add(this.btn_ShowProductGroups);
             this.Controls.Add(this.btn_ShowProducts);
             this.Controls.Add(this.btn_ShowListCustomers);
             this.Controls.Add(this.panel4);
@@ -302,18 +344,21 @@ namespace construction_materials_management
         private System.Windows.Forms.Button btn_ShowListSuppliers;
         private System.Windows.Forms.Button btn_LogOut;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_Products;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Suppliers;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_Customers;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_ShowListCustomers;
         private System.Windows.Forms.Button btn_ShowProducts;
+        private System.Windows.Forms.Button btn_ShowProductGroups;
+        private System.Windows.Forms.Button btn_Introduction;
+        private System.Windows.Forms.Button btn_ShowRepository;
     }
 }

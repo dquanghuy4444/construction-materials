@@ -16,7 +16,7 @@ namespace construction_materials_management
         public Form formMain;
         public DataTable dt;
 
-        public int selectedId;
+        public string selectedId;
 
         public Form_Product_Detail(Form frmMain)
         {
@@ -24,28 +24,46 @@ namespace construction_materials_management
 
             formMain = frmMain;
 
-            InitialData();
-
             InitialContext();
-        }
 
-        public void InitialData()
-        {
-            string query = "SELECT * FROM material.customer";
-            dt = ConnectionDatabase.GetData(query);
+            ChangeContext(true);
         }
 
         public void InitialContext()
         {
+            string query = "SELECT * FROM material.product";
+            DataTable dtProduct = ConnectionDatabase.GetData(query);
+            
+            query = "SELECT * FROM material.product_group";
+            DataTable dtPrpductGroup = ConnectionDatabase.GetData(query);
 
+            treeV_Main.Nodes.Clear();
+            
+            for(int i = 0 ; i < dtPrpductGroup.Rows.Count ; i++)
+            {
+                treeV_Main.Nodes.Add(dtPrpductGroup.Rows[i]["fullname"].ToString());
+
+                for (int j = 0; j < dtProduct.Rows.Count; j++)
+                {
+                    if (dtPrpductGroup.Rows[i]["id"].ToString() == dtProduct.Rows[j]["group_id"].ToString())
+                    {
+                        TreeNode tNode = new TreeNode(dtProduct.Rows[j]["fullname"].ToString());
+                        tNode.Tag = dtProduct.Rows[j]["id"].ToString();
+                        treeV_Main.Nodes[i].Nodes.Add(tNode);
+                    }
+                }
+            }
+
+            query = "SELECT * FROM material.product_group";
+            dt = ConnectionDatabase.GetData(query);
+            cbb_Group.DataSource = dt;
+            cbb_Group.DisplayMember = "fullname";
+            cbb_Group.ValueMember = "id";
         }
 
         public void RefreshForm()
         {
             txt_Fullname.Text = "";
-            txt_Phone.Text = "";
-            txt_Email.Text = "";
-            rtb_Address.Text = "";
             rtb_Description.Text = "";
         }
 
@@ -53,7 +71,7 @@ namespace construction_materials_management
         {
             if (txt_Fullname.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập tên công ty", "Cảnh báo");
+                MessageBox.Show("Bạn chưa nhập tên sản phẩm", "Cảnh báo");
                 txt_Fullname.Focus();
                 return false;
             }
@@ -64,60 +82,24 @@ namespace construction_materials_management
                 return false;
             }
 
-            if (txt_Phone.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập số điện thoại", "Cảnh báo");
-                txt_Phone.Focus();
-                return false;
-            }
-
-            if (!Common.IsVietNamPhone(txt_Phone.Text))
-            {
-                MessageBox.Show("Bạn chưa nhập số điện thoại đúng định dạng", "Cảnh báo");
-                txt_Phone.Focus();
-                return false;
-            }
-
-            if (txt_Email.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập email", "Cảnh báo");
-                txt_Phone.Focus();
-                return false;
-            }
-            if (!Common.IsEmail(txt_Email.Text))
-            {
-                MessageBox.Show("Không phải định dạng email", "Cảnh báo");
-                txt_Email.Focus();
-                return false;
-            }
-
-            if (rtb_Address.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập địa chỉ", "Cảnh báo");
-                rtb_Address.Focus();
-                return false;
-            }
+            
 
             string queryNotId = "";
             if (hasCheckNotId)
             {
-                string id = lbl_SelectedId.Text;
-                queryNotId = "and id <> \'" + id + "\'";
+                if(selectedId == "")
+                {
+                    return true;
+                }
+
+                queryNotId = "and id <> \'" + selectedId + "\'";
             }
 
-            string query = "SELECT * FROM material.customer where email = \'" + txt_Email.Text + "\' " + queryNotId;
+            string query = "SELECT * FROM material.product where fullname = \'" + txt_Fullname.Text + "\' " + queryNotId;
             dt = ConnectionDatabase.GetData(query);
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Email khách hàng này đã có trong CSDL . Xin mời nhập lại", "Cảnh báo");
-                return false;
-            }
-
-            query = "SELECT * FROM material.customer where phone = \'" + txt_Phone.Text + "\' " + queryNotId;
-            dt = ConnectionDatabase.GetData(query);
-            if (dt.Rows.Count > 0)
-            {
-                MessageBox.Show("Số điện thoại khách hàng này đã có trong CSDL . Xin mời nhập lại", "Cảnh báo");
+                MessageBox.Show("Tên sản phẩm này đã có trong CSDL . Xin mời nhập lại", "Cảnh báo");
                 return false;
             }
 
@@ -133,101 +115,117 @@ namespace construction_materials_management
 
             string query = "";
             string fullName = txt_Fullname.Text;
-            string phone = txt_Phone.Text;
-            string email = txt_Email.Text;
-            string address = rtb_Address.Text;
             string description = rtb_Description.Text;
-            string id = lbl_SelectedId.Text;
-            query = "UPDATE material.customer " +
+            string groupId = cbb_Group.SelectedValue.ToString();
+
+            query = "UPDATE material.product " +
                 "SET " +
                 "fullname = \'" + fullName + "\' ," +
-                "phone = \'" + phone + "\' ," +
-                "address = \'" + address + "\' ," +
-                "email = \'" + email + "\' ," +
+                "group_id = \'" + groupId + "\' ," +
                 "description = \'" + description + "\' " +
-                "WHERE id = \'" + id + "\'";
+                "WHERE id = \'" + selectedId + "\'";
 
             bool success = ConnectionDatabase.QueryData(query);
             if (success)
             {
-                MessageBox.Show("Thay đổi thông tin khách hàng thành công !!!", "Thông báo");
-
-                InitialData();
+                MessageBox.Show("Thay đổi thông tin sản phẩm thành công !!!", "Thông báo");
 
                 InitialContext();
 
                 RefreshForm();
 
             }
-
-
         }
-
-
-
-
-
-        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            lbl_SelectedId.Text = selectedId.ToString();
-
-            string query = "SELECT * FROM material.customer where id = \'" + selectedId + "\'";
-            DataTable dt = ConnectionDatabase.GetData(query);
-
-            if(dt.Rows.Count > 0)
-            {
-                txt_Fullname.Text = dt.Rows[0]["fullname"].ToString();
-                txt_Phone.Text = dt.Rows[0]["phone"].ToString();
-                txt_Email.Text = dt.Rows[0]["email"].ToString();
-                rtb_Address.Text = dt.Rows[0]["address"].ToString();
-                rtb_Description.Text = dt.Rows[0]["description"].ToString();
-            }
-        }
-
         private void btn_ExportExcel_Click(object sender, EventArgs e)
         {
-            InitialData();
 
-            InitialContext();
+            string query = "select p.id , p.fullname , p.description , pg.id as id_group ,  pg.fullname as fullname_group , pu.fullname as fullname_unit ,  pg.description as description_group from material.product as p left join material.product_group as pg on p.group_id = pg.id left join material.product_unit as pu on pg.unit_id = pu.id";
+            dt = ConnectionDatabase.GetData(query);
 
             if (dt.Rows.Count > 0)
             {
-                Common.ExportDatatableToExcel(dt);
+                Common.ExportDatatableToExcel(dt, "san pham");
             }
         }
 
-        private void btn_SearchPhoneNum_Click(object sender, EventArgs e)
+
+        private void treeV_Main_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            string phoneNum = txt_SearchPhoneNum.Text;
-
-            if (phoneNum == "")
+            if(e.Node.Level == 1)
             {
-                MessageBox.Show("Bạn chưa nhập số điện thoại", "Cảnh báo");
-                txt_Phone.Focus();
-                return;
+                var node = e.Node;
+                selectedId = node.Tag.ToString();
+
+                if(selectedId == "")
+                {
+                    return;
+                }
+
+                string query = "SELECT * FROM material.product where id = \' " + selectedId + "\'";
+                DataTable dtProduct = ConnectionDatabase.GetData(query);
+
+
+                if (dtProduct.Rows.Count > 0)
+                {
+                    txt_Fullname.Text = dtProduct.Rows[0]["fullname"].ToString();
+                    rtb_Description.Text = dtProduct.Rows[0]["description"].ToString();
+                    cbb_Group.SelectedValue = (int)dtProduct.Rows[0]["group_id"];
+                }
+
+                ChangeContext(false);
             }
-
-            if (!Common.IsVietNamPhone(phoneNum))
-            {
-                MessageBox.Show("Bạn chưa nhập số điện thoại đúng định dạng", "Cảnh báo");
-                txt_Phone.Focus();
-                return;
-            }
-
-            string query = "SELECT * FROM material.customer where phone = \'" + phoneNum + "\'";
-            dt = ConnectionDatabase.GetData(query);
-            InitialContext();
-
-            btn_ShowAll.Visible = true;
         }
 
-        private void btn_ShowAll_Click(object sender, EventArgs e)
+        private void ChangeContext(bool status)
         {
-            InitialData();
+            btn_Add.Visible = status;
+            btn_Change.Visible = !status;
 
-            InitialContext();
+            grb_Option.Text = status ? "Thêm mới sản phẩm" : "Sửa thông tin sản phẩm";
 
-            txt_SearchPhoneNum.Text = "";
+            btn_Return.Visible = !status;
+
+            if (status)
+            {
+                selectedId = "";
+                RefreshForm();
+            }
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            if (!ValidateForm())
+            {
+                return;
+            }
+
+            string query = "";
+            string fullName = txt_Fullname.Text;
+            string description = rtb_Description.Text;
+            string groupId = cbb_Group.SelectedValue.ToString();
+
+            query = "INSERT INTO material.product " +
+                "(fullname,description,group_id) VALUES " +
+                "(" +
+                "\'" + fullName + "\' , " +
+                "\'" + description + "\' , " +
+                "\'" + groupId + "\' " +
+                ")";
+
+            bool success = ConnectionDatabase.QueryData(query);
+            if (success)
+            {
+                MessageBox.Show("Tạo mới thông tin sản phẩm thành công !!!", "Thông báo");
+
+                InitialContext();
+
+                RefreshForm();
+            }
+        }
+
+        private void btn_Return_Click(object sender, EventArgs e)
+        {
+            ChangeContext(true);
         }
     }
 }

@@ -308,23 +308,23 @@ namespace construction_materials_management
 
         private void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa nhà cung cấp (ID : " + selectedId + ") này không ?", "Thông báo", MessageBoxButtons.YesNoCancel,
-        MessageBoxIcon.Information);
+        //    DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa nhà cung cấp (ID : " + selectedId + ") này không ?", "Thông báo", MessageBoxButtons.YesNoCancel,
+        //MessageBoxIcon.Information);
 
-            if (dr == DialogResult.Yes)
-            {
-                string query = "DELETE FROM material.supplier where id = \'" + selectedId + "\'";
-                bool success = ConnectionDatabase.QueryData(query);
-                if (success)
-                {
-                    status = (int)Variables.ENUM_STATUS.ACTIVE;
+        //    if (dr == DialogResult.Yes)
+        //    {
+        //        string query = "DELETE FROM material.supplier where id = \'" + selectedId + "\'";
+        //        bool success = ConnectionDatabase.QueryData(query);
+        //        if (success)
+        //        {
+        //            status = (int)Variables.ENUM_STATUS.ACTIVE;
 
-                    InitialData();
-                    InitialContext();
-                    RefreshForm();
-                }
+        //            InitialData();
+        //            InitialContext();
+        //            RefreshForm();
+        //        }
 
-            }
+        //    }
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
