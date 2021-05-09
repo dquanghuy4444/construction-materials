@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace construction_materials_management
@@ -35,7 +36,17 @@ namespace construction_materials_management
                 return false;
         }
 
-        public static void ExportToExcel(DataTable dt)
+        public static bool IsVietNamPhone(string phone)
+        {
+            if(phone == "")
+            {
+                return false;
+            }
+            string regexStr = @"(84|0[3|5|7|8|9])+([0-9]{8})\b";
+            return Regex.IsMatch(phone, regexStr);
+        }
+
+        public static void ExportDatatableToExcel(DataTable dt , string name = "report")
         {
 
             /*Set up work book, work sheets, and excel application*/
@@ -72,7 +83,7 @@ namespace construction_materials_management
                 }
 
                 osheet.Columns.AutoFit();
-                string filepath = "C:\\Temp\\Book1";
+                string filepath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + name;
 
                 //Release and terminate excel
 

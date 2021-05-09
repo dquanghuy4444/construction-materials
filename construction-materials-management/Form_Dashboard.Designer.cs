@@ -30,7 +30,6 @@ namespace construction_materials_management
         private void InitializeComponent()
         {
             this.label_Welcome = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_ShowInfor = new System.Windows.Forms.Button();
             this.btn_ShowListSuppliers = new System.Windows.Forms.Button();
             this.btn_LogOut = new System.Windows.Forms.Button();
@@ -46,11 +45,14 @@ namespace construction_materials_management
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_ShowListCustomers = new System.Windows.Forms.Button();
+            this.btn_ShowProducts = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Welcome
@@ -62,19 +64,6 @@ namespace construction_materials_management
             this.label_Welcome.Size = new System.Drawing.Size(146, 25);
             this.label_Welcome.TabIndex = 0;
             this.label_Welcome.Text = "Xin chào , XXX";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::construction_materials_management.Properties.Resources.male;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(268, 305);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // btn_ShowInfor
             // 
@@ -232,6 +221,43 @@ namespace construction_materials_management
             this.label8.TabIndex = 0;
             this.label8.Text = "Tổng số đơn hàng";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::construction_materials_management.Properties.Resources.male;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(268, 305);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_ShowListCustomers
+            // 
+            this.btn_ShowListCustomers.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_ShowListCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowListCustomers.Location = new System.Drawing.Point(366, 242);
+            this.btn_ShowListCustomers.Name = "btn_ShowListCustomers";
+            this.btn_ShowListCustomers.Size = new System.Drawing.Size(207, 62);
+            this.btn_ShowListCustomers.TabIndex = 10;
+            this.btn_ShowListCustomers.Text = "Xem danh sách khách hàng";
+            this.btn_ShowListCustomers.UseVisualStyleBackColor = false;
+            this.btn_ShowListCustomers.Click += new System.EventHandler(this.btn_ShowListCustomers_Click);
+            // 
+            // btn_ShowProducts
+            // 
+            this.btn_ShowProducts.BackColor = System.Drawing.Color.SeaShell;
+            this.btn_ShowProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowProducts.Location = new System.Drawing.Point(366, 338);
+            this.btn_ShowProducts.Name = "btn_ShowProducts";
+            this.btn_ShowProducts.Size = new System.Drawing.Size(207, 62);
+            this.btn_ShowProducts.TabIndex = 11;
+            this.btn_ShowProducts.Text = "Xem danh sách sản phẩm";
+            this.btn_ShowProducts.UseVisualStyleBackColor = false;
+            this.btn_ShowProducts.Click += new System.EventHandler(this.btn_ShowProducts_Click);
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,6 +266,8 @@ namespace construction_materials_management
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1481, 734);
+            this.Controls.Add(this.btn_ShowProducts);
+            this.Controls.Add(this.btn_ShowListCustomers);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -252,7 +280,6 @@ namespace construction_materials_management
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Dashboard";
             this.Text = "Form_Dashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -261,6 +288,7 @@ namespace construction_materials_management
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +313,7 @@ namespace construction_materials_management
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_ShowListCustomers;
+        private System.Windows.Forms.Button btn_ShowProducts;
     }
 }

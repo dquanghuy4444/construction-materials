@@ -35,9 +35,14 @@ namespace construction_materials_management
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel_Supplier = new System.Windows.Forms.Panel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel_Customer = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel_Product = new System.Windows.Forms.Panel();
             this.tabC_Main.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabC_Main
@@ -45,6 +50,7 @@ namespace construction_materials_management
             this.tabC_Main.Controls.Add(this.tabPage1);
             this.tabC_Main.Controls.Add(this.tabPage3);
             this.tabC_Main.Controls.Add(this.tabPage4);
+            this.tabC_Main.Controls.Add(this.tabPage2);
             this.tabC_Main.Location = new System.Drawing.Point(0, 0);
             this.tabC_Main.Name = "tabC_Main";
             this.tabC_Main.SelectedIndex = 0;
@@ -90,12 +96,39 @@ namespace construction_materials_management
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.panel_Customer);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1477, 728);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Kho";
+            this.tabPage4.Text = "Khách hàng";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel_Customer
+            // 
+            this.panel_Customer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_Customer.Location = new System.Drawing.Point(0, 0);
+            this.panel_Customer.Name = "panel_Customer";
+            this.panel_Customer.Size = new System.Drawing.Size(1481, 734);
+            this.panel_Customer.TabIndex = 1;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel_Product);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1477, 728);
+            this.tabPage2.TabIndex = 5;
+            this.tabPage2.Text = "Sản phẩm";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel_Product
+            // 
+            this.panel_Product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_Product.Location = new System.Drawing.Point(0, 0);
+            this.panel_Product.Name = "panel_Product";
+            this.panel_Product.Size = new System.Drawing.Size(1481, 734);
+            this.panel_Product.TabIndex = 2;
             // 
             // Form_Main
             // 
@@ -112,6 +145,8 @@ namespace construction_materials_management
             this.tabC_Main.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -124,5 +159,8 @@ namespace construction_materials_management
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel_Dashboard;
         private System.Windows.Forms.Panel panel_Supplier;
+        private System.Windows.Forms.Panel panel_Customer;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel_Product;
     }
 }

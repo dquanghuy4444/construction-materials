@@ -163,14 +163,16 @@ namespace construction_materials_management
                 updatePass +
                 "WHERE id = \'" + dr["id"].ToString() + "\'";
 
-            ConnectionDatabase.QueryData(query);
+            bool success = ConnectionDatabase.QueryData(query);
+            if (success)
+            {
+                MessageBox.Show("Thay đổi thông tin cá nhân thành công", "Thông báo");
 
-            MessageBox.Show("Thay đổi thông tin cá nhân thành công", "Thông báo");
+                this.Hide();
 
-            this.Hide();
-
-            formDashboard.InitialData();
-            formDashboard.InitialContext();
+                formDashboard.InitialData();
+                formDashboard.InitialContext();
+            }
 
         }
     }

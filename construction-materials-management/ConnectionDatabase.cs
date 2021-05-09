@@ -74,8 +74,9 @@ namespace construction_materials_management
             return dt;
         }
 
-        public static void QueryData(string query)
+        public static bool QueryData(string query)
         {
+            bool result = true;
             if (HasConnectingToDb())
             {
                 try
@@ -90,12 +91,15 @@ namespace construction_materials_management
                 }
                 catch (Exception ex)
                 {
+                    result = false;
                     MessageBox.Show(ex.Message);
                 }
 
                 dataConnection.Close();
 
             }
+
+            return result;
         }
     }
 }

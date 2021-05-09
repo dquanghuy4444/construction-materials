@@ -66,5 +66,15 @@ namespace construction_materials_management
         {
             formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_SUPPLIERS);
         }
+
+        private void btn_ShowListCustomers_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_CUSTOMERS);
+        }
+
+        private void btn_ShowProducts_Click(object sender, EventArgs e)
+        {
+            formMain.ChangeTabPage((int)Form_Main.ENUM_TABPAGE.LIST_PRODUCTS);
+        }
     }
 }

@@ -16,7 +16,8 @@ namespace construction_materials_management
         public enum ENUM_TABPAGE  
         {
             LIST_SUPPLIERS = 1,
-            LIST_PRODUCTS = 2,
+            LIST_CUSTOMERS = 2,
+            LIST_PRODUCTS = 3,
         }
         public Form_Main(string id)
         {
@@ -40,7 +41,19 @@ namespace construction_materials_management
             formSupplier.TopLevel = false;
             formSupplier.AutoScroll = true;
             this.panel_Supplier.Controls.Add(formSupplier);
-            formSupplier.Show();
+            formSupplier.Show();   
+            
+            Form_Customer formCustomer = new Form_Customer(this);
+            formCustomer.TopLevel = false;
+            formCustomer.AutoScroll = true;
+            this.panel_Customer.Controls.Add(formCustomer);
+            formCustomer.Show(); 
+            
+            Form_Product formProduct = new Form_Product(this);
+            formProduct.TopLevel = false;
+            formProduct.AutoScroll = true;
+            this.panel_Product.Controls.Add(formProduct);
+            formProduct.Show();
         }
 
         public void ChangeTabPage(int indexTabPage)

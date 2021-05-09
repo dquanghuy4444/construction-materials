@@ -113,6 +113,30 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="ConnectionDatabase.cs" />
+    <Compile Include="Form_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Customer.Designer.cs">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product_Group.Designer.cs">
+      <DependentUpon>Form_Product_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product_Detail.Designer.cs">
+      <DependentUpon>Form_Product_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Product.Designer.cs">
+      <DependentUpon>Form_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Variables.cs" />
     <Compile Include="Form_Dashboard.cs">
       <SubType>Form</SubType>
@@ -146,6 +170,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Customer.resx">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product_Group.resx">
+      <DependentUpon>Form_Product_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product_Detail.resx">
+      <DependentUpon>Form_Product_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Product.resx">
+      <DependentUpon>Form_Product.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Dashboard.resx">
       <DependentUpon>Form_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
