@@ -47,3 +47,4 @@ D:\Coding\Projects\C#\construction-materials-management\construction-materials-m
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Product.resources
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Product_Group.resources
 D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Product_Detail.resources
+D:\Coding\Projects\C#\construction-materials-management\construction-materials-management\obj\Debug\construction_materials_management.Form_Repository.resources

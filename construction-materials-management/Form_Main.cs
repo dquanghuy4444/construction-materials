@@ -59,7 +59,14 @@ namespace construction_materials_management
             formProduct.AutoScroll = true;
             formProduct.Name = "form";
             this.panel_Product.Controls.Add(formProduct);
-            formProduct.Show();
+            formProduct.Show();   
+            
+            Form_Repository formRepository = new Form_Repository(this);
+            formRepository.TopLevel = false;
+            formRepository.AutoScroll = true;
+            formRepository.Name = "form";
+            this.panel_Repository.Controls.Add(formRepository);
+            formRepository.Show();
         }
 
         public void ChangeTabPage(int indexTabPage)
